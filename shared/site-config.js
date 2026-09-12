@@ -4,4 +4,4 @@
   jadi aman dibiarkan kosong dulu kalau belum tahu alamatnya).
 */
 const BUYER_SITE_URL = "https://restudagung-lgtm.github.io/pembeli-webv2/";
-const SELLER_SITE_URL = "https://restudagung-lgtm.github.io/penjual-webv2/menu/";
+const SELLER_SITE_URL = "https://restudagung-lgtm.github.io/penjual-webv2/";
