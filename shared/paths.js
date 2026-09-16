@@ -14,7 +14,7 @@
 // CEK LAGI alamat GitHub Pages kamu yang sebenarnya setelah deploy -- kalau
 // nama repo-nya beda, ganti nilai ini supaya tombol/link antar halaman
 // (Ringkasan/Toko/Pesanan/Pengaturan) tidak salah arah.
-const BASE_PATH = '/admin-web';
+const BASE_PATH = '/admin-webv2';
 
 function pageUrl(path, params){
   let qs = '';
