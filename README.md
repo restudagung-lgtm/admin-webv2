@@ -73,6 +73,24 @@ dengan nama repo GitHub kamu yang sebenarnya. **Wajib dicek ulang**:
 4. Saat pertama kali dibuka, situs ini akan minta kamu membuat password
    admin (akun tunggal, bukan multi-user).
 
+## Mengelola langganan Premium toko
+
+Di halaman `/toko/`, tiap toko punya tombol **Aktifkan Premium 30 Hari**
+atau **Cabut Premium**. Karena tidak ada payment gateway yang tersambung,
+ini murni saklar manual — biasanya dipakai setelah penjual bayar langganan
+langsung ke kamu (tunai/transfer di luar sistem). Toko Premium bisa pasang
+menu tanpa batas (toko Gratis dibatasi 5 menu aktif) dan dapat badge
+"Premium" yang tampil ke pembeli. Aturannya ada di `shared/plan.js`.
+
+## Retensi nota pesanan (30 hari)
+
+Nota/riwayat pesanan otomatis dihapus setelah 30 hari lewat `shared/cleanup.js`,
+dipicu setiap kali halaman "Pesanan" di sini dibuka (dibatasi maksimal
+sekali tiap 6 jam per perangkat). Karena situs ini statis tanpa server
+sendiri, ini bukan proses latar belakang 24 jam — kalau tidak ada admin
+maupun penjual yang membuka halaman pesanan dalam waktu lama, pembersihan
+otomatis ini juga ikut tertunda sampai ada yang membukanya lagi.
+
 ## Catatan keamanan
 
 Ini level prototipe: akun admin cuma satu, dan password-nya disimpan polos

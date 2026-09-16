@@ -3,5 +3,5 @@
   Dipakai untuk tombol tautan cepat di panel admin (bukan untuk fungsi inti,
   jadi aman dibiarkan kosong dulu kalau belum tahu alamatnya).
 */
-const BUYER_SITE_URL = "https://restudagung-lgtm.github.io/pembeli-webv2/";
-const SELLER_SITE_URL = "https://restudagung-lgtm.github.io/penjual-webv2/";
+const BUYER_SITE_URL = "https://restudagung-lgtm.github.io/pembeli-web/";
+const SELLER_SITE_URL = "https://restudagung-lgtm.github.io/penjual-web/";

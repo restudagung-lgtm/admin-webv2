@@ -7,6 +7,7 @@
 async function init(){
   const acc = await requireAdminAuth();
   if(!acc) return;
+  purgeOldOrders(); // jalan di latar belakang, tidak menahan tampilan
   const dashContent = renderDashShell('pesanan');
   dashContent.innerHTML = `<div class="empty">${ic('loader-2',24)} Memuat pesanan…</div>`;
   mountIcons();
@@ -16,7 +17,7 @@ async function init(){
   orders.sort((a,b) => b.createdAt - a.createdAt);
   if(orders.length === 0){ dashContent.innerHTML = `<div class="empty">${ic('receipt',30)}<br>Belum ada pesanan.</div>`; mountIcons(); return; }
   const shown = orders.slice(0, 50);
-  dashContent.innerHTML = shown.map(o => {
+  dashContent.innerHTML = `<p class="faint" style="text-align:center;margin-bottom:10px;">${ic('clock',11)} Nota pesanan tersimpan 30 hari, lalu terhapus otomatis.</p>` + shown.map(o => {
     const payLabel = o.paymentMethod === 'qris' ? 'QRIS' : 'Tunai';
     const payStatus = o.paymentStatus || (o.paymentMethod === 'qris' ? 'lunas' : 'bayar_ditempat');
     return `
