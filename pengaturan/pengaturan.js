@@ -17,17 +17,7 @@ async function init(){
     <button class="btn btn-primary" onclick="saveTotalTables()">Simpan</button>
     <p id="totalMsg" class="muted" style="margin-top:8px;"></p>
   </div>
-  <div class="card">
-    <h3>Ganti Password Admin</h3>
-    <div class="field" style="margin-top:10px;"><label>Password baru</label>
-      <div class="pwd-wrap">
-        <input id="newAdminPass" type="password" placeholder="minimal 6 karakter">
-        <button type="button" class="pwd-toggle ic-btn" onclick="togglePwd('newAdminPass', this)">${ic('eye',16)}</button>
-      </div>
-    </div>
-    <button class="btn btn-outline" onclick="changeAdminPassword()">Simpan Password Baru</button>
-    <p id="passMsg" class="muted" style="margin-top:8px;"></p>
-  </div>`;
+  <p class="faint" style="text-align:center;">Ganti password &amp; foto profil ada di halaman Profil (avatar di pojok kanan atas).</p>`;
   mountIcons();
 }
 
@@ -35,16 +25,6 @@ async function saveTotalTables(){
   const n = Number(document.getElementById('setTotal').value) || 16;
   await sSet('config:totalTables', {total:n}, true);
   document.getElementById('totalMsg').textContent = 'Tersimpan.';
-}
-
-async function changeAdminPassword(){
-  const p = document.getElementById('newAdminPass').value;
-  const msg = document.getElementById('passMsg');
-  if(!p || p.length < 6){ msg.textContent = 'Password minimal 6 karakter.'; return; }
-  const acc = await sGet('admin:owner', true) || {};
-  acc.password = p;
-  await sSet('admin:owner', acc, true);
-  msg.textContent = 'Password admin diperbarui.';
 }
 
 init();

@@ -16,24 +16,37 @@ admin-web/
 │   ├── index.html            statistik ringkas lintas semua toko
 │   └── ringkasan.js
 ├── toko/
-│   ├── index.html            daftar semua toko terdaftar, bisa dihapus
+│   ├── index.html            daftar semua toko, kelola langganan Premium
 │   └── toko.js
 ├── pesanan/
 │   ├── index.html            daftar pesanan lintas semua toko
 │   └── pesanan.js
 ├── pengaturan/
-│   ├── index.html            jumlah meja & ganti password admin
+│   ├── index.html            pengaturan sistem: jumlah meja
 │   └── pengaturan.js
+├── profil/
+│   ├── index.html            PUSAT AKUN: foto profil admin, ganti
+│   │                        password, keluar
+│   └── profil.js             (dibuka lewat avatar bundar di pojok kanan atas)
 └── shared/                    file yang dipakai bersama semua halaman di atas
     ├── firebase-config.js
     ├── storage.js
     ├── utils.js               fungsi bantu umum, ikon, rating, dst.
-    ├── auth-guard.js          cek sesi login admin di tiap halaman
-    ├── nav.js                  kerangka topbar + tab bar bawah panel
-    ├── paths.js                BASE_PATH & fungsi pindah halaman (goTo/pageUrl)
-    ├── site-config.js          alamat web PEMBELI & PENJUAL
+    ├── plan.js                 aturan paket Gratis/Premium toko
+    ├── cleanup.js               retensi nota pesanan 30 hari
+    ├── auth-guard.js           cek sesi login admin di tiap halaman
+    ├── nav.js                   kerangka topbar (+avatar) & tab bar bawah
+    ├── paths.js                 BASE_PATH & fungsi pindah halaman (goTo/pageUrl)
+    ├── site-config.js           alamat web PEMBELI & PENJUAL
     └── style.css
 ```
+
+Avatar bundar di pojok kanan atas (foto profil admin, atau ikon perisai
+kalau belum ada foto) ada di semua halaman panel -- diklik akan membuka
+halaman **/profil/** untuk ganti foto, ganti password, dan keluar.
+Pengaturan yang sifatnya sistem (jumlah meja) tetap di halaman terpisah
+**/pengaturan/**, dan kelola langganan Premium tiap toko tetap di
+halaman **/toko/** (ada jalan pintas ke keduanya dari halaman Profil).
 
 Karena tiap halaman panel berdiri sendiri (bukan SPA), setiap halaman
 memanggil `requireAdminAuth()` (dari `shared/auth-guard.js`) di awal
